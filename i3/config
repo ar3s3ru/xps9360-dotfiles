@@ -1,0 +1,163 @@
+## i3 ModKeys
+set $mod  Mod4
+set $cmod Mod1 
+
+
+## Font for window titles.
+font pango: Droid Sans 10
+
+
+## Colors
+set $back               #1d1F21
+set $black              #282A2E
+set $grey               #373B41
+set $lightgrey          #707880
+set $white              #C5C8C6
+set $yellow             #F0C674
+set $red                #CC6666
+set $darkred            #A54242
+set $green              #B5BD56
+set $default            #18FFD2
+
+# border colors:        border: bg:     text:   indicator:
+#client.focused         #493757 #453452 #FFFFFF #523445
+client.focused          #f1fa8c #394042 #FFFFFF #009688
+client.focused_inactive #4F4E43 #49483E #BFBFBF #49483E
+client.unfocused        #000000 #000000 #888888 #000000
+client.urgent           #662B32 #58252B #F4BF75 #58252B
+
+
+# Gaps
+gaps inner 10
+gaps outer 10
+smart_gaps on
+
+
+## Workspaces
+set $work1 "term"
+set $work2 "www"
+set $work3 "code"
+set $work4 "4"
+set $work5 "5"
+
+
+## Startup applications
+exec_always feh --bg-scale feh --bg-scale ~/Pictures/low-poly-wallpaper-1.jpg
+exec_always compton --config ~/.config/compton/config -cb
+exec_always yabar
+
+
+## i3 Options
+hide_edge_borders both
+new_window pixel 2
+
+
+## Media keys
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute        exec amixer -q set Master mute
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym Print exec scrot
+bindsym $mod+Print exec scrot -s
+
+
+## Key bindings
+##
+# Open Rofi
+bindsym $mod+p exec rofi -show run -lines 3 -eh 2 -width 50 -padding 50 -opacity "100" -bw 2 -bc "#f1fa8c" -bg "#44475a" -fg "#8BE9FD" -hlbg "#44475a" -hlfg "#FF7AC6" -font "Inconsolata for Powerline 26"
+
+# Floating mode
+floating_modifier $mod
+
+# Focus keys
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# Moving keys
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# Horizontal splitting
+bindsym $mod+h split h
+# Vertical splitting
+bindsym $mod+v split v
+
+# Fullscreen mode
+bindsym $mod+f fullscreen toggle
+
+# Change layout mode
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Tiling / floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space       focus mode_toggle
+
+# General
+bindsym $mod+a       focus parent
+bindsym $mod+Return  exec xfce4-terminal --hide-menubar
+bindsym $mod+Shift+q kill
+
+
+## Workspaces
+
+# Move workspaces
+bindsym $mod+1 workspace $work1
+bindsym $mod+2 workspace $work2
+bindsym $mod+3 workspace $work3
+bindsym $mod+4 workspace $work4
+bindsym $mod+5 workspace $work5
+# bindsym $mod+6 workspace 6
+# bindsym $mod+7 workspace 7
+# bindsym $mod+8 workspace 8
+# bindsym $mod+9 workspace 9
+# bindsym $mod+0 workspace 10
+
+# Move container focused to certain workspace
+bindsym $mod+Shift+1 move container to workspace $work1
+bindsym $mod+Shift+2 move container to workspace $work2
+bindsym $mod+Shift+3 move container to workspace $work3
+bindsym $mod+Shift+4 move container to workspace $work4
+bindsym $mod+Shift+5 move container to workspace $work5
+# bindsym $mod+Shift+6 move container to workspace 6
+# bindsym $mod+Shift+7 move container to workspace 7
+# bindsym $mod+Shift+8 move container to workspace 8
+# bindsym $mod+Shift+9 move container to workspace 9
+# bindsym $mod+Shift+0 move container to workspace 10
+
+
+## i3 Session Keys
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+r mode "resize"
+
+
+## Resize mode
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym Left  resize shrink width  10 px or 10 ppt
+        bindsym Down  resize grow   height 10 px or 10 ppt
+        bindsym Up    resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow   width  10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}

@@ -1,0 +1,26 @@
+# Uses GLX backend
+
+backend = "glx";
+vsync = "opengl-mswc";	# VSync with MESA_swap_control OpenGL extension
+
+####################
+#
+# GLX Backend
+#
+####################
+
+glx-no-stencil = true;
+glx-copy-from-front = false;
+glx-swap-method = "undefined";
+
+#########################
+#
+# No need for shadows
+#
+#########################
+no-dnd-shadow = true;
+no-dock-shadow = true;
+shadow-exclude = [
+    "name = 'lemonbar'",
+    "name = 'yabar'"
+];

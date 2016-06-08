@@ -1,0 +1,27 @@
+[Configuration]
+FontName=Inconsolata for Powerline Italic 12
+MiscAlwaysShowTabs=FALSE
+MiscBell=FALSE
+MiscBordersDefault=FALSE
+MiscCursorBlinks=FALSE
+MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
+MiscDefaultGeometry=80x24
+MiscInheritGeometry=FALSE
+MiscMenubarDefault=FALSE
+MiscMouseAutohide=FALSE
+MiscToolbarDefault=FALSE
+MiscConfirmClose=TRUE
+MiscCycleTabs=TRUE
+MiscTabCloseButtons=TRUE
+MiscTabCloseMiddleClick=TRUE
+MiscTabPosition=GTK_POS_TOP
+MiscHighlightUrls=TRUE
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
+BackgroundDarkness=0.700000
+ColorForeground=#f2f2f2f2f2f2
+ColorBackground=#212121212121
+ColorCursor=#f2f2f2f2f2f2
+ColorPalette=#424242424242;#c6c628282828;#55558b8b2f2f;#e6e651510000;#15156565c0c0;#adad14145757;#000083838f8f;#e0e0e0e0e0e0;#373747474f4f;#efef6c6c0000;#68689f9f3838;#f5f57c7c0000;#0303a9a9f4f4;#e9e91e1e6363;#0000bcbcd4d4;#f2f2f2f2f2f2
+TabActivityColor=#d5d500000000
+
